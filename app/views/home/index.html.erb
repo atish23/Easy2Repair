@@ -1,0 +1,64 @@
+<section id="feature" class="transparent-bg">
+        <div class="container">
+           <div class="center wow fadeInDown">
+                <h2>Our Services</h2>
+                <p class="lead">Easy2Repair is  is an independent provider of remote technical support services for software and computer peripherals. We provide solutions and services for a wide range of products. <br/> Easy2Repair has no affiliation with any third-party companies unless such relationship is expressly specified. For permitted use and specific warranties associated with the software, hardware, and peripherals,please contact the relevant third party</p>
+            </div>
+
+            <div class="row">
+            	
+                <div class="features">
+                <% @services.each do |service| %>
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            
+                            <%= image_tag service.avatar.url(:thumb) %>
+							<h3><%= link_to service.name, "#"%></h3>
+							<%= service.short_desc%>
+                        </div>
+                    </div><!--/.col-md-4-->
+					<% end %>
+                </div><!--/.services-->
+            </div><!--/.row--> 
+
+
+            <div class="get-started center wow fadeInDown">
+                <h2>Ready to get started</h2>
+                <p class="lead">Easy2Repair is  is an independent provider of remote technical support services for software and computer peripherals. We provide solutions and services for a wide range of products. <br/>Easy2Repair has no affiliation with any third-party companies unless such relationship is expressly specified. For permitted use and specific warranties associated with the software, hardware, and peripherals,please contact the relevant third party</p>
+                <div class="request">
+                    <h4><%= link_to "Request Issue", new_issue_path%>
+                </div>
+            </div><!--/.get-started-->
+
+            <div class="clients-area center wow fadeInDown">
+                <h2>What our client says</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="/assets/client1.png" class="img-circle" alt="">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="/assets/client2.png" class="img-circle" alt="">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="/assets/client3.png" class="img-circle" alt="">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                        <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+                    </div>
+                </div>
+           </div>
+
+        </div><!--/.container-->
+    </section><!--/#feature-->
+

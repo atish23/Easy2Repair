@@ -1,0 +1,103 @@
+<div class="container">
+      <div class="row main">
+        <div class="main-login main-center">
+        <h5>Sign up once .</h5>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.hidden_field :role , value: "user" %>
+            <div class="form-group">
+            <%= f.label :first_name,class: "cols-sm-2 control-label" %><br />
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :first_name, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your First Name"%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+            <%= f.label :last_name,class: "cols-sm-2 control-label" %><br />
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :last_name, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your Last Name"%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :email,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :email, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your Email"%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                  <%= f.label :password,class: "cols-sm-2 control-label" %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                  <%= f.password_field :password, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your  Password"%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                  <%= f.password_field :password_confirmation, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your Confirm Password"%>
+                </div>
+              </div>
+            </div>
+
+           <div class="form-group">
+              <%= f.label :address,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :address, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your Address"%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :city,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :city, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your City"%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone_number,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :phone_number, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your Phone"%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :zip_code,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                  <%= f.text_field :zip_code, autofocus: true ,required: true ,class: "form-control",placeholder: "Enter your ZipCode"%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group ">
+              <%= f.submit "Sign up", :class => "btn btn-primary btn-lg btn-block login-button" %>| <%= render "devise/shared/links" %>
+            </div>
+            
+          <%end%>
+        </div>
+      </div>
+    </div>

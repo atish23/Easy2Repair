@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device: MyString
+  desc: MyString
+  user_id: 
+  type_of_problem: MyString
+  delivery: MyString
+
+two:
+  device: MyString
+  desc: MyString
+  user_id: 
+  type_of_problem: MyString
+  delivery: MyString

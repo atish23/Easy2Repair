@@ -29,7 +29,8 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     @issue.save
     @user = current_user
-    UserMailer.welcome_email(@user).deliver
+    Issue.send_text_message(current_user)
+    #UserMailer.welcome_email(@user).deliver!
     redirect_to issues_path
   end
 

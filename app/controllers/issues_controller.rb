@@ -5,6 +5,9 @@ class IssuesController < ApplicationController
 
   def index
     @issues = current_user.issues
+    charges = Stripe::Charge.list(customer: current_user.stripe_id)
+    @data = charges.data
+    # raise @data.inspect
     respond_with(@issues)
   end
 
@@ -27,10 +30,12 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
+    @issue.total_amount = 0
     @issue.save
     @user = current_user
-    Issue.send_text_message(current_user)
-    #UserMailer.welcome_email(@user).deliver!
+    # Issue.send_text_message(current_user)
+    # byebug
+    UserMailer.welcome_email(@user).deliver!
     redirect_to issues_path
   end
 

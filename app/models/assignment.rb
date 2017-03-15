@@ -1,6 +1,7 @@
 class Assignment < ActiveRecord::Base
   belongs_to :user
   belongs_to :issue
+  belongs_to :assignment
 
  
  before_save :assign_task

@@ -9,6 +9,7 @@ class PlansController < ApplicationController
   end
 
   def new
+    # raise params.inspect
   	@amount = params[:amount]
     @@amt = @amount
   end
@@ -17,12 +18,17 @@ class PlansController < ApplicationController
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
       customer.sources.create(source: params[:stripeToken])
       @am = @@amt
+      # byebug
+      @issue = Issue.find(24)
+      @issue.payment = true
+      @issue.save!
         Stripe::Charge.create(
             :customer =>  customer.id,
             :amount   =>  @@amt,
             :description  => "Charges By User",
             :currency => 'usd'
            )
+
         rescue Stripe::CardError  => e
           flash[:error] = e.message
           redirect_to root_path

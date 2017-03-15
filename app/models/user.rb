@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :issues
+  has_many :assignments
   before_create :user_stripe_id
 
 
   def role_enum
-   [['admin'],['hardware'],['user']]
+   [['admin'],['engineer'],['user']]
   end  
   
   def user_stripe_id

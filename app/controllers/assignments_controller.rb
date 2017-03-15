@@ -4,8 +4,11 @@ class AssignmentsController < ApplicationController
   respond_to :html
 
   def index
-    @assignments = Assignment.all
-    respond_with(@assignments)
+    # binding.pry
+
+    # @assignments = Assignment.all
+    @assignments = current_user.assignments
+    # respond_with(@assignments)
   end
 
   def show

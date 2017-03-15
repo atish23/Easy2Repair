@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312141746) do
+ActiveRecord::Schema.define(version: 20170315170529) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170312141746) do
   add_index "assignments", ["issue_id"], name: "index_assignments_on_issue_id"
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
+  create_table "bills", force: true do |t|
+    t.string   "amount"
+    t.string   "tax"
+    t.string   "total"
+    t.integer  "issue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bills", ["issue_id"], name: "index_bills_on_issue_id"
+
   create_table "issues", force: true do |t|
     t.string   "device"
     t.text     "desc"
@@ -32,6 +43,8 @@ ActiveRecord::Schema.define(version: 20170312141746) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
+    t.string   "total_amount"
+    t.boolean  "payment",         default: false
   end
 
   add_index "issues", ["user_id"], name: "index_issues_on_user_id"

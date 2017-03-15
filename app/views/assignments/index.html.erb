@@ -1,22 +1,39 @@
+<div class="container">
+
 <h1>Listing assignments</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Issue</th>
-      <th colspan="3"></th>
+      <th>Device </th>
+      <th>Desc </th>
+      <th>Type of problem </th>
+      <th>Delivery</th>
+      <th>Assigned date</th>
+      <th>Status</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.user %></td>
-        <td><%= assignment.issue %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= assignment.issue.device %></td>
+        <td><%= assignment.issue.desc %></td>
+        <td><%= assignment.issue.type_of_problem %></td>
+        <td><%= assignment.issue.delivery %></td>
+        <td><%= assignment.issue.created_at.strftime("%m/%d/%Y") %></td>
+        <td><%= assignment.issue.status.capitalize if assignment.issue.status.present? %></td>
+        <% if assignment.issue.total_amount.present? && assignment.issue.total_amount != "0"  %>
+           <td><%= "Bill Generated" %><td>
+        <% else%>   
+           <td><%= link_to "Bill", new_bill_path(:issue => assignment.issue_id), class: " btn btn-primary" %></td>
+         <% end %>  
+        <td><%#= link_to "Bill", new_bill_path, {:controller => "bills", :action => "new", :issue_id => assignment.issue_id} %></td>
+        
+        <td><%#= link_to 'Show', assignment, class: "btn btn-primary" %></td>
+        <td><%#= link_to 'Edit', edit_assignment_path(assignment) %></td>
+        <td><%#= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +41,9 @@
 
 <br>
 
-<%= link_to 'New Assignment', new_assignment_path %>
+<%#= link_to 'New Assignment', new_assignment_path %>
+
+</div>
+
+
+

@@ -1,9 +1,5 @@
 <div class="container">
-
-
-<h1>Listing issues</h1>
-
-<table class="table">
+<table class="table" style="color:#f0f0f0;font-size:24px;">
   <thead>
     <tr>
       <th>Device </th>
@@ -28,17 +24,14 @@
 <td><%#= link_to 'Edit', edit_issue_path(issue) %></td> -->
         <%#= raise @data.inspect%>
         <% if !issue.payment %>
-          <% if issue.total_amount.nil? %>
-            <td><%= link_to "Pay Online",class: "btn btn-success", 
-                                :controller => "plans", 
-                                :action => "new", 
-                                :amount => "0"
-                                 %> </td>
+          <% if issue.total_amount == "0" %>
+            <td>Bill Not Generated</td>
           <%else%>
             <td><%= link_to "Pay Online",class: "btn btn-success", 
                                 :controller => "plans", 
                                 :action => "new", 
-                                :amount => issue.total_amount
+                                :amount => issue.total_amount,
+                                :issue_id => issue.id
                                  %> </td>
           <%end%>
           

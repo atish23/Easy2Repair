@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315170529) do
+ActiveRecord::Schema.define(version: 20170316134145) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -30,9 +30,18 @@ ActiveRecord::Schema.define(version: 20170315170529) do
     t.integer  "issue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   add_index "bills", ["issue_id"], name: "index_bills_on_issue_id"
+
+  create_table "contactus", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "feedback"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "issues", force: true do |t|
     t.string   "device"

@@ -14,33 +14,56 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :amount, class: "col-sm-3 control-label" %><br>
+    <%#= f.label :amount, class: "col-sm-3 control-label" %><br>
     <div class="col-sm-3">
-      <%= f.text_field :amount, class: "form-control" %>
+      <%= f.text_field :amount, class: "form-control",id: "amount" ,required: true,placeholder: "Amount"%>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :tax, class: "col-sm-3 control-label" %><br>
+    <%#= f.label :tax, class: "col-sm-3 control-label" %><br>
     <div class="col-sm-3">
-      <%= f.text_field :tax, class: "form-control" %>
+      <%= f.text_field :tax, class: "form-control",id: "tax",required: true,placeholder: "Tax" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :total , class: "col-sm-3 control-label" %><br>
+    <%#= f.label :total , class: "col-sm-3 control-label" %><br>
     <div class="col-sm-3">
-      <%= f.text_field :total, class: "form-control" %>
+      <%= f.text_field :total, class: "form-control", id: "total",required: true,placeholder: "Total" %>
     </div>
   </div>
+    <div class="form-group">
+    <%#= f.label :description , class: "col-sm-3 control-label" %><br>
+    <div class="col-sm-3">
+      <%= f.text_area :description, class: "form-control", required: true ,placeholder: "Description"%>
+    </div>
+  </div>
+
+  <% if @bill.issue_id.nil? %>
   <%= f.hidden_field :issue_id, :value => params[:issue] %>
-  <!-- <div class="form-group">
-    <%#= f.label :issue_id, class: "col-sm-3 control-label" %><br>
-    <div class="col-sm-3">
-      <%#= f.text_field :issue_id, class: "form-control" %>
-      </div>
-  </div> -->
+  <% else %>
+  <%= f.hidden_field :issue_id, :value => @bill.issue_id %>
+  <% end %>
   <div class="form-group">
-    <div class="col-sm-3"></div>
     <div class="col-sm-3">
     <%= f.submit "Generate Bill", :class => "btn btn-primary" %>
   </div>
 <% end %>
+<script type="text/javascript">
+
+  
+$( document ).ready(function() {
+    console.log( "ready!" );
+    var amount = "0";
+    var tax = "0";
+    var total = "0";
+  $( "#total" ).on( "click", function() { 
+    amount = parseInt($("#amount").val());
+    tax = parseInt($("#tax").val());
+    var percent = amount * (tax/100)
+    total = amount + percent
+    total = parseInt(total);
+
+    $("#total").val(total.toString())
+  });
+});
+</script>

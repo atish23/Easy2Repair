@@ -2,7 +2,7 @@
 <h1>All Plan made by <%= current_user.email%> </h1>
 <%= link_to "Change Your plan here", plans_path , class: "btn btn-primary" %>
 <% unless @data.empty? %>
-  <table class="table table-striped">
+  <table class="table " style="color:#f0f0f0;font-size:24px;">
     <thead>
       <tr>
         <th>No.</th>

@@ -1,0 +1,38 @@
+
+<%= form_for(@contactu, html: {class: "form-horizontal"}) do |f| %>
+  <% if @contactu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contactu.errors.count, "error") %> prohibited this contactu from being saved:</h2>
+
+      <ul>
+      <% @contactu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%#= f.label :name,class: "col-sm-3 control-label" %><br>
+    <div class="col-sm-3">
+    <%= f.text_field :name,class: "form-control" , required: true , placeholder: "Name"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%#= f.label :email,class: "col-sm-3 control-label" %><br>
+    <div class="col-sm-3">
+    <%= f.email_field :email,class: "form-control", required: true, placeholder: "Email" %>
+    </div>
+   </div>
+  <div class="form-group">
+    <%#= f.label :feedback,class: "col-sm-3 control-label" %><br>
+    <div class="col-sm-6">
+    <%= f.text_area :feedback,class: "form-control", required: true , placeholder: "Feedback"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-9">
+    <%= f.submit 'Contact Us', :class => 'btn btn-danger' %>
+  </div>
+</div>
+<% end %>

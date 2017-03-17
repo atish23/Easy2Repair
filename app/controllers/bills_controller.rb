@@ -1,6 +1,6 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   respond_to :html
 
   def index
@@ -24,12 +24,13 @@ class BillsController < ApplicationController
     # raise params.inspect
     @bill = Bill.new(bill_params)
     @bill.save
-    respond_with(@bill)
+    redirect_to bills_path
   end
 
   def update
     @bill.update(bill_params)
-    respond_with(@bill)
+    redirect_to bills_path
+    # respond_with(@bill)
   end
 
   def destroy
@@ -43,6 +44,6 @@ class BillsController < ApplicationController
     end
 
     def bill_params
-      params.require(:bill).permit(:amount, :tax, :total, :issue_id)
+      params.require(:bill).permit(:amount, :tax, :total, :issue_id,:description)
     end
 end

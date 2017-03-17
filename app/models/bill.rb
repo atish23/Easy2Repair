@@ -11,6 +11,7 @@ class Bill < ActiveRecord::Base
  # 	 issue = self.issue_id
  	 assign_issue = Issue.find(issue)
  	 assign_issue.total_amount = user_total
+ 	 assign_issue.status = "Completed"
  	 assign_issue.save!
  end
 

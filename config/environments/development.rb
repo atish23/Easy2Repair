@@ -32,16 +32,15 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
-#   ActionMailer::Base.smtp_settings = {
-#   :user_name => 'easyrepair',
-#   :password => 'admin#123',
-#   :domain => 'easyrepair.com',
-#   :address => 'smtp.sendgrid.net',
-#   :port => 587,
-#   :authentication => :plain,
-#   :enable_starttls_auto => true
-# }
+  config.action_view.raise_on_missing_translations = true
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'dhirajn',
+  :password => 'admin#123',
+  :domain => 'www.easy2repair.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 
 end

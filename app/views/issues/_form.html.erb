@@ -12,34 +12,33 @@
   <% end %>
 <%#= raise current_user.inspect %>
   <div class="form-group">
-      <%= f.label :device ,class: "col-sm-3 control-label"%>
+      <%#= f.label :device ,class: "col-sm-3 control-label"%>
       <div class="col-sm-9">
         <%= f.select :device, ['Desktop', 'Laptop', 'Mobile'] , {}, {class: "form-control"} %>
       </div>
   </div> <!-- /.form-group -->
   <div class="form-group">
-    <%= f.label :desc,class: "col-sm-3 control-label" %><br>
+    <%#= f.label :desc,class: "col-sm-3 control-label" %><br>
     <div class="col-sm-9">
-      <%= f.text_area :desc ,class: "form-control"%>
+      <%= f.text_area :desc ,class: "form-control", required: true , placeholder: "Description"%>
     </div>
   </div>
   <div class="form-group">
     <%= f.hidden_field :user_id , :value => current_user.id %>
   </div>
   <div class="form-group">
-    <%= f.label :type_of_problem ,class: "col-sm-3 control-label"%>
+    <%#= f.label :type_of_problem ,class: "col-sm-3 control-label"%>
     <div class="col-sm-9">
       <%= f.select :type_of_problem, ['Hardware', 'Software', 'Both'] , {}, {class: "form-control"} %>
     </div>
   </div> <!-- /.form-group -->
   <div class="form-group">
-    <%= f.label :delivery ,class: "col-sm-3 control-label"%>
+    <%#= f.label :delivery ,class: "col-sm-3 control-label"%>
     <div class="col-sm-9">
       <%= f.select :delivery, ['PickUp', 'Drop'] , {}, {class: "form-control"} %>
     </div>
   </div> <!-- /.form-group -->
   <div class="form-group">
-    <div class="col-sm-3"></div>
     <div class="col-sm-9">
       <%= f.submit 'Request', :class => 'btn btn-primary' %>
     </div>

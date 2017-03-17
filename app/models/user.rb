@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
    [['admin'],['engineer'],['user']]
   end  
   
+   
+
   def user_stripe_id
     customer = Stripe::Customer.create(email: email)
     self.stripe_id = customer.id

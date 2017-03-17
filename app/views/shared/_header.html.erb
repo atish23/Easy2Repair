@@ -9,6 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
                 <%= link_to "Easy2Repair", root_path, class: "navbar-brand" %>
+                
         </div>
 
         <div class="collapse navbar-collapse navbar-right">
@@ -16,12 +17,12 @@
                 
                 <li><%= link_to "Request Issues", new_issue_path %></li>
                 <li><%= link_to "Plans", plans_path %></li>
-
                 
+                <% if user_signed_in? %>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <% if user_signed_in? %>
+                        
                           <li>
                           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
                           </li>
@@ -29,16 +30,20 @@
                          <!-- <li> -->
                             <% if current_user.role == "engineer" %>
                               <li><%= link_to "My Assignment", assignments_path%></li>
+                              <li><%= link_to "Customer Billing", bills_path%></li>
                             <% else %>
+
                               <li><%= link_to('My Issues',issues_path)  %></li>
                               <% end %>
-                          <% else %>
-                          <li>
-                          <%= link_to('Login', new_user_session_path)  %>  
-                          </li>
-                        <% end %>
+                          
+                          
+                        
                     </ul>
                 </li>
+                <%else%>
+                <li><%= link_to('Login', new_user_session_path)  %>  </li>
+                <% end %>
+                <li><%= link_to "Contact Us", new_contactu_path %></li>
                      
             </ul>
         </div>

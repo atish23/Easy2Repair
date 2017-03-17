@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contactus
+
   resources :bills
 
   resources :assignments

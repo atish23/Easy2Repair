@@ -6,7 +6,7 @@
 **************************/
 
 body {
-  background: #fff;
+  background: url(/assets/bg.jpg) 50% 50% no-repeat;
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
